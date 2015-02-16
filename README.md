@@ -9,4 +9,4 @@ Note that the code will not initiall compile so you will have to create the sour
 
 The final output of the program should look like this
 
-![here](GLOutput.png)
+![here](GLoutput.png)
