@@ -1,19 +1,19 @@
 #ifndef GLFUNCTIONS_H__
 #define GLFUNCTIONS_H__
-#ifdef LINUX
+#ifdef __linux__
 	#include <GL/gl.h>
 #endif
-#ifdef DARWIN
+#ifdef __APPLE__
 	#include <OpenGL/gl.h>
 #endif
 
 #include "Vec4.h"
 #include <cmath>
 
-const static float TWO_PI= float(2*M_PI); //6.28318530717958647692   //360
-const static float PI=float(M_PI); //3.14159265358979323846       //180
-const static float PI2=float(M_PI/2.0); //1.57079632679489661923      //90
-const static float PI4=float(M_PI/4.0); //0.785398163397448309615     //45
+constexpr float TWO_PI= float(2*M_PI); //6.28318530717958647692   //360
+constexpr float PI=float(M_PI); //3.14159265358979323846       //180
+constexpr float PI2=float(M_PI/2.0); //1.57079632679489661923      //90
+constexpr float PI4=float(M_PI/4.0); //0.785398163397448309615     //45
 
 class GLFunctions
 {
