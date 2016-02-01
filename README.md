@@ -10,3 +10,7 @@ Note that the code will not initially compile so you will have to create the sou
 The final output of the program should look like this
 
 ![here](GLoutput.png)
+
+The function `void normalGL();` will call `glNormal3f(m_x, m_y, m_z);`
+The function `void vertexGL();` will call `glVertex3f(m_x, m_y, m_z);`
+The function `void colourGL();` will call `glColor4fv(m_openGL);`
