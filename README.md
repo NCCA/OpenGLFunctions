@@ -6,6 +6,7 @@ You will need to write Mat4 and Vec4 classes based on the class diagrams below. 
 Note that the code will not initially compile so you will have to create the source and header files first.
 
 ![here](GLClasses.png)
+
 The function `void normalGL();` will call `glNormal3f(m_x, m_y, m_z);`
 
 The function `void vertexGL();` will call `glVertex3f(m_x, m_y, m_z);`
