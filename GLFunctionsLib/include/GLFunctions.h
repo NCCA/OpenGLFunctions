@@ -1,6 +1,10 @@
-#ifndef GLFUNCTIONS_H__
-#define GLFUNCTIONS_H__
-#ifdef __linux__
+#ifndef GLFUNCTIONS_H_
+#define GLFUNCTIONS_H_
+#ifdef WIN32
+  #include <Windows.h> // must be before gl.h include
+#endif
+
+#if defined (__linux__) || defined (WIN32)
 	#include <GL/gl.h>
 #endif
 #ifdef __APPLE__

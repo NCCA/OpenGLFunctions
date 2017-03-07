@@ -1,11 +1,14 @@
 /// under mac __APPLE__ is defined by the compiler so we can check
 /// this to get the correct includes for OpenGL
+#ifdef WIN32
+  #include <Windows.h> // must be before gl.h include
+#endif
+
+#if defined (__linux__) || defined (WIN32)
+  #include <GL/gl.h>
+#endif
 #ifdef __APPLE__
   #include <OpenGL/gl.h>
-  #include <OpenGL/glu.h>
-#else
-  #include <GL/gl.h>
-  #include <GL/glu.h>
 #endif
 
 #include <iostream>

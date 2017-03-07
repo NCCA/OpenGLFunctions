@@ -1,5 +1,5 @@
-#ifndef SDLOPENGL_H__
-#define SDLOPENGL_H__
+#ifndef SDLOPENGL_H_
+#define SDLOPENGL_H_
 #include <SDL.h>
 #include <string>
 
