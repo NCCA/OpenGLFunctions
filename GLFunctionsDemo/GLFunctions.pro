@@ -31,20 +31,8 @@ macx:LIBS+= -framework OpenGL
 win32 : {
 DEFINES+=_USE_MATH_DEFINES
 INCLUDEPATH +=c:/SDL2/include
-LIBS += -L$$PWD/../../../SDL2/VisualC/SDL/x64/Debug/ -lSDL2
-LIBS += -L$$PWD/../../../SDL2/VisualC/SDLmain/x64/release/ -lSDL2main
+LIBS += -L$$PWD/../../../SDL2/lib/x64/ -lSDL2
 LIBS+=-lopengl32
 CONFIG+=console
 
 }
-
-
-
-
-win32: LIBS += -L$$PWD/../../../SDL2/VisualC/SDLmain/x64/Debug/ -lSDL2main
-
-INCLUDEPATH += $$PWD/../../../SDL2/VisualC/SDLmain/x64/Debug
-DEPENDPATH += $$PWD/../../../SDL2/VisualC/SDLmain/x64/Debug
-
-win32:!win32-g++: PRE_TARGETDEPS += $$PWD/../../../SDL2/VisualC/SDLmain/x64/Debug/SDL2main.lib
-else:win32-g++: PRE_TARGETDEPS += $$PWD/../../../SDL2/VisualC/SDLmain/x64/Debug/libSDL2main.a
