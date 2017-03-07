@@ -3,9 +3,8 @@ TEMPLATE=app
 CONFIG+=c++11
 # qt 5 wants this may cause errors with 4
 isEqual(QT_MAJOR_VERSION, 5) {cache() }
-QT += core
-QT +=opengl
-
+QT += opengl
+QT -= corex`
 TARGET=GLFunctions
 OBJECTS_DIR=$$PWD/obj
 SOURCES=$$PWD/src/main.cpp \
@@ -17,20 +16,35 @@ CONFIG-=app_bundle
 # this is where to look for includes
 INCLUDEPATH +=include
 INCLUDEPATH += ../GLFunctionsLib/include
-LIBS+= -L ../GLFunctionsLib/lib -lGLFunctionsLib
-QMAKE_CXXFLAGS+= -msse -msse2 -msse3
+LIBS+= -L$$PWD/../GLFunctionsLib/lib -lGLFunctionsLib
 macx:QMAKE_CXXFLAGS+= -arch x86_64
 
+!win32 :{
 QMAKE_CXXFLAGS += $$system(sdl2-config --cflags)
 LIBS+=$$system(sdl2-config --libs)
+}
 
-
-LIBS += -L/usr/local/lib
+!win32:LIBS += -L/usr/local/lib
 macx:LIBS+= -framework OpenGL
-# now if we are under unix and not on a Mac (i.e. linux) define GLEW
-linux-g++:linux-g++-64 {
-    LIBS+= -lGLEW
+
+
+win32 : {
+DEFINES+=_USE_MATH_DEFINES
+INCLUDEPATH +=c:/SDL2/include
+LIBS += -L$$PWD/../../../SDL2/VisualC/SDL/x64/Debug/ -lSDL2
+LIBS += -L$$PWD/../../../SDL2/VisualC/SDLmain/x64/release/ -lSDL2main
+LIBS+=-lopengl32
+CONFIG+=console
+
 }
-linux-clang {
-    LIBS+= -lGLEW
-}
+
+
+
+
+win32: LIBS += -L$$PWD/../../../SDL2/VisualC/SDLmain/x64/Debug/ -lSDL2main
+
+INCLUDEPATH += $$PWD/../../../SDL2/VisualC/SDLmain/x64/Debug
+DEPENDPATH += $$PWD/../../../SDL2/VisualC/SDLmain/x64/Debug
+
+win32:!win32-g++: PRE_TARGETDEPS += $$PWD/../../../SDL2/VisualC/SDLmain/x64/Debug/SDL2main.lib
+else:win32-g++: PRE_TARGETDEPS += $$PWD/../../../SDL2/VisualC/SDLmain/x64/Debug/libSDL2main.a

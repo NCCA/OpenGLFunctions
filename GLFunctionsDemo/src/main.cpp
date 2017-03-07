@@ -15,7 +15,7 @@
 #include <cstdlib>
 #include <GLFunctions.h>
 #include "SDLOpenGL.h"
-
+#undef main
 
 // function to init the basic OpenGL scene for this demo
 void initOpenGL();
@@ -24,6 +24,7 @@ void draw();
 
 int main()
 {
+  std::cout<<"main\n";
   // create our SDLWindow
   SDLOpenGL win("GLFunctions Demo",0,0,720,576);
   // this makes sure the window is active for OpenGL calls, if we have

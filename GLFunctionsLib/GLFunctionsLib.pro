@@ -25,16 +25,16 @@ HEADERS+=$$PWD/include/GLFunctions.h \
 # this is where to look for includes
 INCLUDEPATH +=include
 
-QMAKE_CXXFLAGS+= -msse -msse2 -msse3
 macx:QMAKE_CXXFLAGS+= -arch x86_64
 
 
 
-LIBS += -L/usr/local/lib
+!win32: LIBS += -L/usr/local/lib
 macx:LIBS+= -framework OpenGL
 
 # windows build
 win32:{
 DEFINES+=_USE_MATH_DEFINES
+LIBS+= -lopengl32
 
 }

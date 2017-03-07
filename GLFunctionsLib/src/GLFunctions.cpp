@@ -162,7 +162,7 @@ void GLFunctions::perspective(float _fovy,float _aspect, float _zNear, float _zF
   float h = _height / 2;
   float s, c, s1, c1, o;
   float sb, cb, sb1, cb1;
-  float ang = (1.0 / _precision) * (M_PI);
+  float ang = (1.0f / _precision) * (M_PI);
   Vec4 normal,vertex;
   for (int i = 0; i < 2 * _precision; ++i)
   {

@@ -8,7 +8,11 @@ SDLOpenGL::SDLOpenGL(const std::string &_name, int _x, int _y,int _width, int _h
   m_y=_y;
   m_width=_width;
   m_height=_height;
+
+  std::cout<<"before init \n";
   init();
+  std::cout<<"after init \n";
+
 }
 
 void SDLOpenGL::init()
@@ -39,7 +43,7 @@ void SDLOpenGL::createGLContext()
   SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS,1);
   SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES,4);
 
-  SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE,16);
+  SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE,24);
   SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER,1);
 
   m_glContext=SDL_GL_CreateContext(m_window);
